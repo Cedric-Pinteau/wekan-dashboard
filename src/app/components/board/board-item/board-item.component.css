@@ -1,0 +1,23 @@
+.board {
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.board:hover {
+    background: #a09393;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.board.reminder {
+    border-left: 5px solid green;
+}
+
+.board h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

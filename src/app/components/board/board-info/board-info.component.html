@@ -1,0 +1,16 @@
+<div>
+    <h3> Board Users </h3>
+    <tr *ngFor="let user of getUserList()" class="board">
+        <td>{{user.username}}</td>
+    </tr>
+    <h3> Board Lists </h3>
+    <tr *ngFor="let list of getNotArchivedLits()">
+        <td>{{list.title}}
+            <tr class="card" *ngFor="let card of getCardsOfList(list)">
+                <td>{{card.title}}</td>
+            </tr>
+        </td>
+    </tr>
+
+</div>
+<p></p>

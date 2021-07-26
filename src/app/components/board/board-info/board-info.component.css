@@ -1,0 +1,19 @@
+.board {
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.card {
+    background: #915e5e;
+    margin: 15px;
+    padding: 20px 30px;
+    cursor: pointer;
+}
+
+.board h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
