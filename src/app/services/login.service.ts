@@ -24,6 +24,7 @@ export class LoginService {
 
   constructor(private http: HttpClient, private helperService: HelperService) { }
 
+  // Login with REST API (helper service as body)
   login(userInfo: UserLoginInfo): Observable<UserLogin>{
     /*Il faut convertir le userInfo en httpParams -> un problème de l'API wekan certainement, les versions récentes d'angular >6 font le mapping automatiquement mais ça ne amrche pas ici*/
     return this.http.post<UserLogin>(this.loginUrlApi, this.helperService.objectToHttpParams(userInfo) , {headers : this.headers});
@@ -37,6 +38,7 @@ export class LoginService {
     return localStorage.getItem('token');
   }
 
+  // return all informations from current user
   getUserInfos(): Observable<UserInfo>{
     return this.http.get<UserInfo>(this.getUserInfo, {headers : this.getHeaders});
   }

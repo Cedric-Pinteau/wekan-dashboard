@@ -1,4 +1,8 @@
-<header>
-    <h1>{{title}}</h1>
-    <app-button color="red" text="Reset" (btnClick)="resetSession()"></app-button>
-</header>
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <app-button color="rgba(255, 68, 68, 0.8)" text="Déconnexion" (btnClick)="resetSession()" *ngIf="this.loginService.isLoggedIn()"></app-button>
+</mat-toolbar>

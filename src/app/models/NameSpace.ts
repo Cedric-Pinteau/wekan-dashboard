@@ -95,6 +95,7 @@ export interface Card {
     color?: string;
     startAt?: any;
     dueAt?: any;
+    endAt?: any;
 }
 
 export interface WipLimit {
@@ -107,7 +108,7 @@ export interface List {
     _id: string;
     archived?: boolean;
     createdAt?: string;
-    title?: string;
+    title: string;
     sort?: number;
     starred?: boolean;
     swimlaneId?: string;

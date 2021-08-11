@@ -37,11 +37,11 @@ export class LoginComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
-        localStorage.setItem('token',res.token);
+        localStorage.setItem('token',res.token); // store token in cookies
         this.loginService.getUserInfos().subscribe(
           res => {
-            localStorage.setItem('userName',res.username);
-            localStorage.setItem('userID',res._id);
+            localStorage.setItem('userName',res.username); // store username in cookies
+            localStorage.setItem('userID',res._id); // store userId in cookies
             location.reload();
           },
           err => console.log(err)

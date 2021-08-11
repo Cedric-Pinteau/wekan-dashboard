@@ -1,16 +1,36 @@
 <div>
-    <h3> Board Users </h3>
-    <tr *ngFor="let user of getUserList()" class="board">
-        <td>{{user.username}}</td>
-    </tr>
-    <h3> Board Lists </h3>
-    <tr *ngFor="let list of getNotArchivedLits()">
-        <td>{{list.title}}
-            <tr class="card" *ngFor="let card of getCardsOfList(list)">
-                <td>{{card.title}}</td>
-            </tr>
-        </td>
-    </tr>
+    <h2> Board Users </h2>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
+        <mat-chip-list *ngFor="let user of getUserList()" class="board">
+            <mat-chip style="background-color: rgb(128, 128, 185);color:white; text-transform: uppercase;">{{user.username}}</mat-chip>
+        </mat-chip-list>
+    </div>
+    <h2> Board Lists </h2>
+    <div class="board-info" [@fadeInOut]>
+        <tr class="list" *ngFor="let list of getNotArchivedList() | listFilter: filterList">
+            <h3>{{list.title}}</h3>
+            <td class="card-container">
+                <mat-card class="card" *ngFor="let card of getCardsOfList(list)">
 
-</div>
-<p></p>
+                    <ng-container *ngIf="this.listOptions[list.title]['color']">
+                        <div style="position: absolute; right: 15px; top: 15px; width: 25px; height: 25px; border: 0; border-radius: 50px;" [ngStyle]="{'background-color': card.color}"></div>
+                    </ng-container>
+                    
+                    <ng-container *ngIf="this.listOptions[list.title]['labels']">
+                        <mat-chip-list *ngFor="let labelId of card.labelIds">
+                            <mat-chip style="margin-bottom: 15px;" [ngStyle]="{'color': this.adaptColorService.bestSuitedTextColor(getLabelOfCard(labelId)[1]), 'background-color': getLabelOfCard(labelId)[1] }">{{ getLabelOfCard(labelId)[2] }}</mat-chip>
+                        </mat-chip-list>
+                    </ng-container>
+
+                    <mat-card-content *ngIf="this.listOptions[list.title]['title']"><h4 style="text-overflow: ellipsis;white-space: nowrap;overflow: hidden;">{{card.title}}</h4></mat-card-content>
+                    
+                    <img *ngIf="this.listOptions[list.title]['attachments']" class="attachment-img" mat-card-image src="data:image/gif;base64,{{getFirstAttachmentFileOfCard(card)}}"/>
+                    
+                    <p *ngIf="this.listOptions[list.title]['modifiedDate']">Dernière modification : {{toFriendlyDate(card.modifiedAt)}}</p>
+                    
+                </mat-card>
+            </td>
+        </tr>
+    </div>
+</div>>
+

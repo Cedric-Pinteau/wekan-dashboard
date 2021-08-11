@@ -1,19 +1,57 @@
 .board {
-    background: #f4f4f4;
     margin: 5px;
     padding: 10px 20px;
-    cursor: pointer;
+}
+
+.board-info{
+    display: flex;
+    flex-direction: row;
+    color: white;
 }
 
 .card {
-    background: #915e5e;
-    margin: 15px;
-    padding: 20px 30px;
+    background: rgb(128, 128, 185);
+    margin-block: 15px;
+    margin-right: 30px;
+    width: 300px !important;
+    height: fit-content;
+    max-height: 400px;
     cursor: pointer;
+    box-shadow:
+        0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+        0 6.7px 5.5px rgba(0, 0, 0, 0.028),
+        0 12.5px 10.5px rgba(0, 0, 0, 0.035),
+        0 22.3px 19.3px rgba(0, 0, 0, 0.042),
+        0 41.8px 37.3px rgba(0, 0, 0, 0.05),
+        0 100px 80px rgba(0, 0, 0, 0.07);
+    transition: transform ease 0.2s;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+
+.attachment-img{
+    object-fit: contain;
+    max-height: 200px;
 }
 
 .board h3 {
-    display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+}
+
+.chip{
+    margin-bottom: 500px;
 }

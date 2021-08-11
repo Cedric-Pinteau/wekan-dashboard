@@ -21,6 +21,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
 import { BoardInfoComponent } from './components/board/board-info/board-info.component';
+import { MaterialModule } from './material/material.module';
+
+import { ListFilter } from './shared/pipes/list-filter';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { BoardInfoComponent } from './components/board/board-info/board-info.com
     BoardItemComponent,
     BoardExportComponent,
     LoginComponent,
-    BoardInfoComponent
+    BoardInfoComponent,
+    ListFilter
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { BoardInfoComponent } from './components/board/board-info/board-info.com
     MatCardModule,
     MatInputModule,
     MatToolbarModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ],
   providers: [
     {

@@ -5,3 +5,12 @@ header {
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar{
+    background-color: rgb(128, 128, 185);
+    color: rgb(245, 245, 245);
+}

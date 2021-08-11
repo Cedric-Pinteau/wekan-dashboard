@@ -5,18 +5,21 @@
     padding: 0;
 }
 
+:root {
+    --card-bg-color-default: rgb(150, 131, 168);
+}
+
+
 body {
     font-family: "Poppins", sans-serif;
+    background-color: rgb(50, 50, 50);
 }
 
 .container {
-    max-width: 95%;
-    margin: 30px auto;
+    margin: auto;
     overflow: auto;
     min-height: 50px;
-    border: 1px solid steelblue;
     padding: 30px;
-    border-radius: 5px;
 }
 
 .btn {
@@ -85,4 +88,14 @@ body {
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a, p, h1, h2, h3, h4, h5, h6, tr{
+    color:rgb(250,250,250)
+}
+
+h1, h2, h3, h4{
+    text-transform: uppercase;
 }

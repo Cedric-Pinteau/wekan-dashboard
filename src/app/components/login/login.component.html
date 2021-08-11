@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center" fxFlexFill style="padding-inline: 25%;">
-    <div fxFlex="60" style="background-color: rgba(255, 0, 0, 0.25); text-align: center; color:brown; padding: 3%; border: 1px solid brown; border-radius: 5px 5px;" *ngIf="login_error">{{login_error}}</div>
-    <mat-card fxFlex="60" style="padding: 0px;">
-        <mat-toolbar style="background-color: rgb(128, 128, 185); padding: 0px; margin-top: 5%;">Authentification</mat-toolbar>
+    <div fxFlex="60" style="background-color: rgba(255, 68, 68, 0.25); text-align: center; color:rgb(228, 135, 135); padding: 3%; border: 1px solid brown; border-radius: 5px 5px; margin-bottom: 5%;" *ngIf="login_error">{{login_error}}</div>
+    <mat-card fxFlex="60" style="background-color: rgb(255, 255, 255); padding: 0px;">
+        <mat-toolbar style="background-color: rgb(128, 128, 185); padding-left: 2.5%;">Authentification</mat-toolbar>
         <form fxLayoutAlign="stretch" fxLayout="column" style="padding: 20px;" (ngSubmit)="onSubmit()">
             <mat-form-field>
                 <input matInput placeholder="username" name="email" [(ngModel)]="email">

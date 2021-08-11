@@ -9,6 +9,7 @@ export class HelperService {
 
   constructor() { }
 
+  // convert body to httpParams
   objectToHttpParams(objectToConvert: any): HttpParams {
     let httpParams = new HttpParams();
     Object.keys(objectToConvert).forEach(function (key) {
