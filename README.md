@@ -18,6 +18,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Deploy on Nginx server
+
+`mv ./dist/myapp /var/www/wekan-dashboard` to move files to their final destination to be served by the web server.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
