@@ -1,10 +1,13 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Injectable, Input, OnInit, Output } from '@angular/core';
 import { Card, FullBoard, List, Attachment, User, Label } from 'src/app/models/NameSpace';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { LoginService } from 'src/app/services/login.service';
 import { MatFormField } from '@angular/material/form-field';
 import { AdaptColorService } from 'src/app/services/css/adapt-color.service';
 import { Dictionary } from 'src/app/models/dictionary.model';
+
+// IDE may display an error on the line below but there is not, it works fine
+import list_config from 'src/assets/list-config.json';
 
 @Component({
   selector: 'app-board-info',
@@ -22,44 +25,15 @@ import { Dictionary } from 'src/app/models/dictionary.model';
   templateUrl: './board-info.component.html',
   styleUrls: ['./board-info.component.css']
 })
+
 export class BoardInfoComponent implements OnInit {
 
   @Input() fullBoard: FullBoard;
   @Input() label: Label;
 
-  // user List config
-  listOptions: Dictionary =  {    
-    'Mood Board': {
-      title: false,
-      labels: true,
-      color: false,
-      attachments: true,
-      createdDate: false,
-      modifiedDate: false,
-      dueDate: false,
-      endDate: false
-    },
-    'Météo Backlog Heat' : {
-      title: true,
-      labels: true,
-      color: true,
-      attachments: false,
-      createdDate: false,
-      modifiedDate: true,
-      dueDate: false,
-      endDate: false
-    },
-    'Charge équipe' : {
-      title: true,
-      labels: false,
-      color: true,
-      attachments: false,
-      createdDate: false,
-      modifiedDate: false,
-      dueDate: false,
-      endDate: false
-    }
-  }
+  // Information to display for each specified list by the use of booleans.
+  // If a list is not referenced in list_config.json, it won't appear.
+  listOptions: Dictionary =  list_config;
 
   // check if a list is in user List config (Boolean)
   filterList = (list: List) => {
@@ -69,6 +43,10 @@ export class BoardInfoComponent implements OnInit {
   constructor(public adaptColorService: AdaptColorService) { }
 
   ngOnInit(): any { }
+
+  ngOnChanges(){
+    this.ngOnInit();
+  }
 
   // return list of users associated with a board
   getUserList(){
@@ -80,7 +58,7 @@ export class BoardInfoComponent implements OnInit {
     return this.fullBoard.lists?.filter(item => !item.archived);
   }
 
-  //  return all cards from specific list which aren't labled as a rule.
+  //  return all cards from specific list which aren't labeled as a rule.
   getCardsOfList(list:List){
     const allRulesLabel = this.fullBoard.labels?.filter(item => item.name == 'Règle' || item.name == 'Règles');    
     return this.fullBoard.cards?.filter(item => item.listId === list._id && !item.archived && !item.labelIds.some(r => allRulesLabel?.find(o => o._id === r))); // doesnt include rules id
@@ -91,13 +69,12 @@ export class BoardInfoComponent implements OnInit {
     return this.fullBoard.attachments?.filter(item => item.cardId === Card._id)[0].file;
   }
 
-  // return all attachments of a card
+  // return all attachments of a card (currently not used)
   getAttachmentsOfCard(Card:Card){
-    //console.log(this.fullBoard.attachments);
     return this.fullBoard.attachments?.filter(item => item.cardId === Card._id);
   }
 
-  // return the label infos of a specific labelid attached to a card
+  // return the label informations [id, color, name] from a selected labelid (label_ids are attached to cards)
   getLabelOfCard(labelId: String){
     const selectedLabel = this.fullBoard.labels?.filter(item => item._id === labelId);
     let labelId_ = "undefined";

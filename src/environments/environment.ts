@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiEndpoint: 'https://wekan.lab-poc-projects.team/api',
-  dbUrl: ''
+  dbApi: 'http://localhost:3000/api'
 };
 
 /*

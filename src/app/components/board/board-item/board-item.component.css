@@ -7,6 +7,8 @@
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
 }
 
 .board:hover {

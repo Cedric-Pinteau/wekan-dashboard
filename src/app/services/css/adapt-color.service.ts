@@ -14,11 +14,8 @@ export class AdaptColorService {
     hex = hex.toString().replace(shortHexRegex,
       (_, r, g, b) => r + r + g + g + b + b);
 
-    //return hex;
-
     const hexRegex = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i;
     const result = hexRegex.exec(hex);
-    //console.log(result);
     return result ? ({
       r: parseInt(result[1], 16),
       g: parseInt(result[2], 16),
@@ -29,11 +26,9 @@ export class AdaptColorService {
   convertColorNameToHex(color: string | undefined){
     const wordToHexLib: any = this.getColorsName();
     const colorKeys = Object.keys(wordToHexLib);
-    //console.log(colorKeys)
     
     return typeof color == "string" ? 
       colorKeys.includes(color) ? (
-        //console.log(wordToHexLib[color]),
         wordToHexLib[color] )
       : 
         "#ffffff"
@@ -50,12 +45,10 @@ export class AdaptColorService {
         Math.pow((value + 0.055) / 1.055, 2.4)
       )
     });
-    //console.log("calcule luminance : " + (red * 0.2126 + green * 0.7152 + blue * 0.0722));
     return red * 0.2126 + green * 0.7152 + blue * 0.0722;
   }
 
   defineTextColorFromLuminance( luminance: number){
-    //console.log("defTextCol : " + luminance)
     return luminance > 0.186 ? "#00000" : "#ffffff";
   }
 

@@ -30,10 +30,12 @@ export class LoginService {
     return this.http.post<UserLogin>(this.loginUrlApi, this.helperService.objectToHttpParams(userInfo) , {headers : this.headers});
   }
 
+  // check if token exist in cookies
   isLoggedIn(): boolean{
     return !!localStorage.getItem('token');
   }
 
+  // return token from cookies
   getToken(): string|null{
     return localStorage.getItem('token');
   }
@@ -43,14 +45,17 @@ export class LoginService {
     return this.http.get<UserInfo>(this.getUserInfo, {headers : this.getHeaders});
   }
 
+  // return username from cookies
   getUserName(): string|null{
     return localStorage.getItem('userName');
   } 
 
+  // return user_id from cookies
   getUserID(): string|null{
     return localStorage.getItem('userID');
   } 
 
+  // clean cookies
   cleanStorage(): void{
     localStorage.clear();
   }

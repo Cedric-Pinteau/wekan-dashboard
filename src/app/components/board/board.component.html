@@ -2,6 +2,13 @@
     <h1>
         Liste des tableaux de <a href="board.component.html" style="text-decoration: none;"><b style="color: rgba(171, 105, 214, 0.979)">{{loginService.getUserName()}}</b></a>
     </h1>
-    <app-board-item *ngFor="let board of boards" [board]="board" (onBoardClickInfo)="showBoardInfo(board)"></app-board-item>
+    <div class="board_container" [ngClass]="{'board_container_column': !isBoardShowed, 'board_container_row': isBoardShowed}">
+        <app-board-item *ngFor="let board of boards" [isBoardShowed]="isBoardShowed" [board]="board" (onBoardClickInfo)="onBoardClickInfo(board)"></app-board-item>
+        <app-board-export   *ngIf="isBoardShowed" 
+                            [fullboard]="boardExport" 
+                            (snap_fullboard)="onChangeHandler($event)">
+        </app-board-export>
+    </div>
+
     <app-board-info *ngIf="isBoardShowed" [fullBoard]="boardExport"></app-board-info>
 </div>

@@ -1,0 +1,13 @@
+.board_container{
+    display: flex;
+    transition: width 5s ease;
+}
+
+.board_container_row{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.board_container_column{
+    flex-direction: column;
+}

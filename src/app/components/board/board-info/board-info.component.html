@@ -1,10 +1,12 @@
 <div>
-    <h2> Board Users </h2>
-    <div style="display: flex; flex-direction: row; justify-content: center;">
-        <mat-chip-list *ngFor="let user of getUserList()" class="board">
-            <mat-chip style="background-color: rgb(128, 128, 185);color:white; text-transform: uppercase;">{{user.username}}</mat-chip>
-        </mat-chip-list>
-    </div>
+    <ng-container *ngIf="false">
+        <h2> Board Users </h2>
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <mat-chip-list *ngFor="let user of getUserList()" class="board">
+                <mat-chip style="background-color: rgb(128, 128, 185);color:white; text-transform: uppercase;">{{user.username}}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </ng-container>
     <h2> Board Lists </h2>
     <div class="board-info" [@fadeInOut]>
         <tr class="list" *ngFor="let list of getNotArchivedList() | listFilter: filterList">

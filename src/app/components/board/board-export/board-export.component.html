@@ -1,1 +1,10 @@
-<p>board-export works!</p>
+<div class="export_container">
+    <app-button style="margin-top: -5px;" height="50px" color="rgba(68, 68, 167, 0.8)" text="Take a snap !" (btnClick)="snapIt(fullboard)" *ngIf="this.loginService.isLoggedIn()"></app-button>
+    <mat-form-field (click)="refresh()" class="snap_form" disableOptionCentering appearance="fill">
+        <mat-label>Sélection de la capture</mat-label>
+        <mat-select [(ngModel)]="selected" (ngModelChange)="onSnapSelected(selected)">
+            <mat-option value="default">État actuel</mat-option>
+            <mat-option *ngFor=" let snap of snapshots" [value]="snap">{{snap.date.toString() | date : 'dd/MM/yyyy HH:mm zzzz'}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

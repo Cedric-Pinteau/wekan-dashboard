@@ -33,7 +33,8 @@
 
 .attachment-img{
     object-fit: contain;
-    max-height: 200px;
+    margin-top: 5px;
+    max-height: 120px;
 }
 
 .board h3 {

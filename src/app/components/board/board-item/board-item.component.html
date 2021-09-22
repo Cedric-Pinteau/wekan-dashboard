@@ -1,3 +1,6 @@
 <mat-card class="board" (click)="onBoardClick(board)" [@fadeInOut]>
-    <h3>{{board.title}}</h3>
+    <img *ngIf="isBoardShowed" src="assets/angle-left-solid.svg" width="11px" style="margin-right:15px; -webkit-filter: invert(.75); /* safari 6.0 - 9.0 */
+    filter: invert(.75);"/>
+    <h3 *ngIf="isBoardShowed">HOME</h3>
+    <h3 *ngIf="!isBoardShowed">{{board.title}}</h3>
 </mat-card>

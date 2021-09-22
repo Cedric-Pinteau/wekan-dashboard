@@ -20,12 +20,14 @@ import {Board} from '../../../models/NameSpace';
 })
 export class BoardItemComponent implements OnInit {
 @Input() board: Board;
+@Input() isBoardShowed: Boolean;
 @Output() onBoardClickInfo: EventEmitter<Board> = new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  // when board is clicked emit its informations to parent.
   onBoardClick(board: Board){
     this.onBoardClickInfo.emit(board);
   }

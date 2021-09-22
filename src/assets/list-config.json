@@ -1,0 +1,32 @@
+{
+    "Mood Board": {
+      "title": false,
+      "labels": true,
+      "color": false,
+      "attachments": true,
+      "createdDate": false,
+      "modifiedDate": false,
+      "dueDate": false,
+      "endDate": false
+    },
+    "Météo Backlog Heat" : {
+      "title": true,
+      "labels": true,
+      "color": true,
+      "attachments": false,
+      "createdDate": false,
+      "modifiedDate": true,
+      "dueDate": false,
+      "endDate": false
+    },
+    "Charge équipe" : {
+      "title": true,
+      "labels": false,
+      "color": true,
+      "attachments": false,
+      "createdDate": false,
+      "modifiedDate": false,
+      "dueDate": false,
+      "endDate": false
+    }
+}
