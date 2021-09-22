@@ -26,7 +26,7 @@ export class LoginService {
 
   // Login with REST API (helper service as body)
   login(userInfo: UserLoginInfo): Observable<UserLogin>{
-    /*Il faut convertir le userInfo en httpParams -> un problème de l'API wekan certainement, les versions récentes d'angular >6 font le mapping automatiquement mais ça ne amrche pas ici*/
+    // We need to convert the userInfo to httpParams -> probably a problem with wekan API, recent versions of angular > 6 do the mapping automatically but it doesn't seem to work here
     return this.http.post<UserLogin>(this.loginUrlApi, this.helperService.objectToHttpParams(userInfo) , {headers : this.headers});
   }
 

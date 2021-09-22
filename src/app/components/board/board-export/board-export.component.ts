@@ -23,7 +23,7 @@ export class BoardExportComponent implements OnInit {
   constructor(private boardComponent: BoardComponent, public loginService: LoginService, private boardService: BoardService) { }
 
   ngOnInit(): void {
-    // récupère tous les snapshots sauvegardés pour l'utilisateur courant
+    // get saved snapshots of current board
     this.boardService.getUserSnap(this.fullboard.title).subscribe(
       res => this.snapshots = res,
       err => console.log(err));
@@ -33,8 +33,8 @@ export class BoardExportComponent implements OnInit {
     this.ngOnInit();
   }
   
-  // récupère uniquement le tableau de l'instantanné sélectionné et le passe dans snap_fullboard
-  // sinon relance une requete vers wekan pour l'état actuel
+  // get board from selected snapshot then pass it to snap_fullboard
+  // else send again a request to wekan to display board current state
   onSnapSelected(snap: any){
     if(snap !== "default"){
       this.snap_fullboard.emit(snap['boardExport'] as FullBoard);
@@ -44,7 +44,7 @@ export class BoardExportComponent implements OnInit {
     return this.snap_fullboard;
   }
   
-  // récupère un instantanné du tableau courant
+  // Make a snapshot for a specified fullboard
   snapIt(fullboard: FullBoard){
     this.boardService.snapBoard(fullboard).subscribe(res => console.log(res),
     err => console.log(err));
